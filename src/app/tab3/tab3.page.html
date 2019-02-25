@@ -1,9 +1,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Benzer Ürün
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content></ion-content>
+<ion-content>
+  <ion-list *ngFor="let dizi of products; let i=index">
+    <ion-item >
+      <ion-label>
+        Ürün{{i+1}} - {{dizi}}
+      </ion-label>
+      <ion-button color="primary" (click)="findLike(dizi, i)">Benzeri</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-label center>
+      En çok benzeyen Ürün: {{benzerUrun == 0 ? "": benzerUrun}}
+    </ion-label>
+  
+</ion-content>

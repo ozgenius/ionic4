@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      HexToRGBA
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-list *ngFor="let data of hexDatas; let i=index">
+      <ion-item >
+        <ion-label>
+         {{data.HEX}}
+        </ion-label>
+        <ion-label>
+        {{data.Alpha}}
+           </ion-label>
+           <ion-label *ngIf="data.rgba != ''">
+              {{data.rgba}}
+                 </ion-label>
+                 <ion-button *ngIf="data.rgba == ''" color="primary" (click)="convert(data,i)">RGBA</ion-button>
+      </ion-item>
+    </ion-list>
+</ion-content>
